@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -99,7 +98,7 @@ const Index = () => {
     { id: 'projects', label: 'Projects' },
     { id: 'education', label: 'Education' },
     { id: 'certifications', label: 'Certifications' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Get in Touch' }
   ];
 
   const skills = {
@@ -212,7 +211,7 @@ const Index = () => {
           </div>
           
           <div className="hidden md:flex space-x-6">
-            {navItems.slice(0, 4).map(item => (
+            {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -377,7 +376,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills Section - Updated styling */}
       <section id="skills" className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -385,35 +384,47 @@ const Index = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
-            {Object.entries(skills).map(([category, skillList]) => (
-              <Card key={category} className="group p-8 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 rounded-2xl">
-                <CardContent className="p-0">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 capitalize text-center">
-                    {category === 'ai' ? 'AI Tools' : category}
-                  </h3>
-                  <div className="space-y-6">
-                    {skillList.map((skill, index) => (
-                      <div key={index} className="group/skill">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center">
-                            <skill.icon className={`h-5 w-5 mr-3 bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`} />
-                            <span className="font-medium text-gray-900 dark:text-white">{skill.name}</span>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
+              {Object.entries(skills).map(([category, skillList]) => (
+                <Card key={category} className="group p-8 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 rounded-2xl">
+                  <CardContent className="p-0">
+                    <div className="text-center mb-8">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white capitalize">
+                        {category === 'ai' ? 'AI Tools' : category}
+                      </h3>
+                      <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-3 rounded-full"></div>
+                    </div>
+                    
+                    <div className="space-y-6">
+                      {skillList.map((skill, index) => (
+                        <div key={index} className="group/skill">
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center">
+                              <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${skill.color} flex items-center justify-center mr-3 group-hover/skill:animate-pulse`}>
+                                <skill.icon className="h-5 w-5 text-white" />
+                              </div>
+                              <span className="font-semibold text-gray-900 dark:text-white text-sm">
+                                {skill.name}
+                              </span>
+                            </div>
+                            <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                              {skill.level}%
+                            </span>
                           </div>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                            <div 
+                              className={`h-full rounded-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out delay-${index * 100}`}
+                              style={{ width: `${skill.level}%` }}
+                            ></div>
+                          </div>
                         </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                          <div 
-                            className={`h-2 rounded-full bg-gradient-to-r ${skill.color} transition-all duration-1000 delay-${index * 100}`}
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
