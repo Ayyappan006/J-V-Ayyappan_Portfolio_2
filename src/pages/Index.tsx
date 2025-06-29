@@ -78,9 +78,8 @@ const Index = () => {
   };
 
   const handleResumeDownload = () => {
-    // Create a link element and trigger download
     const link = document.createElement('a');
-    link.href = '/J_V_Ayyappan_Resume.pdf'; // This will need to be uploaded to public folder
+    link.href = '/J_V_Ayyappan_Resume.pdf';
     link.download = 'J_V_Ayyappan_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -205,7 +204,7 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
-      {/* Modern Floating Navigation */}
+      {/* Navigation */}
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-full px-6 py-3 shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
         <div className="flex items-center space-x-8">
           <div className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -249,7 +248,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-4">
             <div className="grid grid-cols-2 gap-2">
@@ -267,21 +265,16 @@ const Index = () => {
         )}
       </nav>
 
-      {/* Hero Section with New Design */}
+      {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
-        {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-400/30 to-purple-500/30 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
           <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-purple-400/30 to-pink-500/30 rounded-full mix-blend-multiply filter blur-3xl animate-float animation-delay-2000"></div>
           <div className="absolute -bottom-8 left-40 w-80 h-80 bg-gradient-to-r from-pink-400/30 to-red-500/30 rounded-full mix-blend-multiply filter blur-3xl animate-float animation-delay-4000"></div>
-          
-          {/* Grid Pattern */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="1.5"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0 translate-y-10'}`}>
-            {/* Profile Image Placeholder */}
             <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-1 animate-scale-in">
               <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold">
                 JVA
@@ -340,7 +333,6 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Floating Social Icons */}
             <div className="flex justify-center space-x-6 animate-fade-in stagger-5">
               {[
                 { icon: Linkedin, href: "https://linkedin.com/in/j-v-ayyappan", color: "hover:text-blue-600", bg: "hover:bg-blue-50 dark:hover:bg-blue-900/20" },
@@ -358,7 +350,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section with New Layout */}
+      {/* About Section */}
       <section id="about" className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-900/10 dark:to-purple-900/10"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -385,7 +377,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Skills Section */}
+      {/* Skills Section */}
       <section id="skills" className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -394,7 +386,7 @@ const Index = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
-            {Object.entries(skills).map(([category, skillList], categoryIndex) => (
+            {Object.entries(skills).map(([category, skillList]) => (
               <Card key={category} className="group p-8 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 rounded-2xl">
                 <CardContent className="p-0">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 capitalize text-center">
@@ -474,7 +466,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Projects Section */}
+      {/* Projects Section */}
       <section id="projects" className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -595,7 +587,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Certifications Section */}
+      {/* Certifications Section */}
       <section id="certifications" className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -625,7 +617,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Contact Section */}
+      {/* Contact Section */}
       <section id="contact" className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -661,7 +653,7 @@ const Index = () => {
                 <CardContent className="p-0">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h3>
                   <form onSubmit={handleContactSubmit} className="space-y-6">
-                    <div className="floating-label">
+                    <div className="relative">
                       <input
                         type="text"
                         id="name"
@@ -677,7 +669,7 @@ const Index = () => {
                       </label>
                     </div>
                     
-                    <div className="floating-label">
+                    <div className="relative">
                       <input
                         type="email"
                         id="email"
@@ -693,7 +685,7 @@ const Index = () => {
                       </label>
                     </div>
                     
-                    <div className="floating-label">
+                    <div className="relative">
                       <textarea
                         id="message"
                         rows={4}
@@ -721,7 +713,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Footer */}
+      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -746,7 +738,7 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* Enhanced Back to Top Button */}
+      {/* Back to Top Button */}
       {showBackToTop && (
         <Button
           onClick={scrollToTop}
